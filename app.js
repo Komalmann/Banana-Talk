@@ -20,7 +20,11 @@ button.addEventListener("click", function clickEventHandler() {
         alert("Please insert some English text first");
     }
 
-    fetch(getTranslationURL(InputText)).then(response => response.json()).then(json => {
-        outputDiv.innerText = json.contents.translated;
-    }).catch(errorHandler);
+    fetch(getTranslationURL(InputText))
+       .then(response => response.json())
+       .then(json => {
+            var translatedtxt = json.contents.translated;
+            outputDiv.innerText = translatedtxt;
+    })
+    .catch(errorHandler);
 });
